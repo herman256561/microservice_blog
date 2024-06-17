@@ -2,11 +2,15 @@
 
 This is a simple blog microservice project built with Node.js, Express.js, and React.js. 
 
-The project is finished by following the instructions provided by an Udemy course **Microservice with Node.js and React.**
+The project is finished by following the instructions provided by an Udemy course **Microservice with Node.js, React, Dokcer, and Kubernetes.**
 
-Users are able to leave posts and comments on the blog. All the posts and comments are stored in memory of the server of “query” service. Therefore, when the server terminates, the posts and comments records will be gone.
+Users are able to submit posts and comments on the blog. All the posts and comments are stored in memory of the server of “query” service. Therefore, when the server terminates, the posts and comments records will be gone.
 
 The communication between each service is triggered by events.
+
+All services are containerized, and managed by K8s deployments. Additionally, all services are exposed as network services with K8s Service. Nginx Ingress is used as the ingress to access different services that are in different pods in the K8s node. 
+
+The deployment streamline of pods, deployments, and services are automated by **Skaffold**.
 
 # Core Services
 
@@ -19,27 +23,11 @@ The communication between each service is triggered by events.
 
 # To Start the Project
 ```bash
-cd clients
-npm start
+# Step1. Please set 127.0.0.1 as posts.com in your local hosts file.
+# Step2. In the root directory (Blog)
+$ skaffold dev
 
-```bash
-cd posts
-npm start
-
-```bash
-cd comments
-npm start
-
-```bash
-cd event-bus
-npm start
-
-```bash
-cd moderation
-npm start
-
-```bash
-cd query
-npm start
+#Step3. Enter posts.com in your browser
+```
 
 

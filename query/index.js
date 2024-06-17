@@ -52,14 +52,14 @@ app.post('/events', (req, res)=>{
     const {type, data} = req.body;
 
     handleEvent(type, data);
-    // console.log(posts);
+    
     res.send({});
 });
 
 app.listen(4002, async ()=>{
     console.log("Listening on 4002");
 
-    const res = await axios.get('http://localhost:4005/events').catch((err)=>{
+    const res = await axios.get('http://event-bus-srv:4005/events').catch((err)=>{
         console.log(err.message);
     });
 
