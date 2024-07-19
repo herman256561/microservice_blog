@@ -29,5 +29,6 @@ $ skaffold dev
 
 #Step3. Enter posts.com in your browser
 ```
-
+# Video Demo
+[https://youtu.be/JllBsBkMPBY]
 
